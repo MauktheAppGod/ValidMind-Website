@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valid Mind Therapy — Michael Cronin, LMHC</title>
+<meta name="description" content="Individual and couples therapy. A space where what you feel makes sense.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBF8F3;
+    --paper-dim: #F4EFE6;
+    --pine: #2B3A36;
+    --pine-deep: #1E2A27;
+    --sage: #6B7F76;
+    --clay: #C17F59;
+    --clay-soft: #DDB59B;
+    --ink: #1A1A18;
+    --line: rgba(43, 58, 54, 0.14);
+    --max-w: 1140px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .serif {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 248, 243, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .logo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pine-deep);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .logo-mark { width: 9px; height: 9px; border-radius: 50%; background: var(--clay); flex-shrink: 0; align-self: center; }
+  .logo-suffix {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--sage);
+    text-transform: uppercase;
+    position: relative;
+    top: -1px;
+  }
+  .nav-right { display: flex; align-items: center; gap: 36px; }
+  .nav-links { display: flex; gap: 36px; font-size: 0.94rem; color: var(--pine); }
+  .nav-links a { position: relative; padding: 4px 0; }
+  .nav-links a:hover { color: var(--pine-deep); }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    background: var(--pine-deep);
+    color: var(--paper) !important;
+    padding: 11px 26px;
+    border-radius: 2px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid var(--pine-deep);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--paper); color: var(--pine-deep) !important; border-color: var(--pine-deep); }
+  @media (max-width: 760px) {
+    .nav-links { display: none; }
+    .nav-cta { padding: 9px 16px; font-size: 0.74rem; }
+  }
+  .hero { padding: 120px 0 100px; position: relative; overflow: hidden; }
+  .hero-inner { max-width: 760px; }
+  .breath {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--clay-soft);
+    margin-bottom: 36px;
+    animation: breathe 5.5s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.55; box-shadow: 0 0 0 0 rgba(193,127,89,0.0); }
+    50% { transform: scale(2.4); opacity: 0.95; box-shadow: 0 0 18px 4px rgba(193,127,89,0.25); }
+  }
+  .eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 22px;
+    display: block;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.18;
+    color: var(--pine-deep);
+    opacity: 0;
+    animation: riseIn 0.9s ease 0.15s forwards;
+  }
+  .hero h1 em { font-style: italic; color: var(--clay); }
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero p.lede {
+    margin-top: 26px;
+    font-size: 1.15rem;
+    color: var(--pine);
+    max-width: 540px;
+    opacity: 0;
+    animation: riseIn 0.9s ease 0.4s forwards;
+  }
+  .hero-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: riseIn 0.9s ease 0.6s forwards;
+  }
+  .btn-primary {
+    background: var(--pine-deep);
+    color: var(--paper);
+    padding: 15px 30px;
+    border-radius: 3px;
+    font-size: 0.97rem;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--clay); transform: translateY(-1px); }
+  .btn-ghost {
+    font-size: 0.95rem;
+    color: var(--pine-deep);
+    border-bottom: 1px solid var(--pine-deep);
+    padding-bottom: 3px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-ghost:hover { color: var(--clay); border-color: var(--clay); }
+  .hero-note {
+    margin-top: 56px;
+    font-size: 0.88rem;
+    color: var(--sage);
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+    max-width: 540px;
+  }
+  section { padding: 92px 0; }
+  .section-head { max-width: 600px; margin-bottom: 56px; }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); color: var(--pine-deep); line-height: 1.3; }
+  .divider { border: none; border-top: 1px solid var(--line); }
+  .approach { background: var(--paper-dim); }
+  .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .approach-statement {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    line-height: 1.5;
+    color: var(--pine-deep);
+  }
+  .approach-statement .accent-rule { display: block; width: 44px; height: 2px; background: var(--clay); margin-bottom: 28px; }
+  .approach-list { display: flex; flex-direction: column; gap: 28px; }
+  .approach-item { padding-left: 22px; border-left: 2px solid var(--line); }
+  .approach-item h3 { font-size: 1.08rem; color: var(--pine-deep); margin-bottom: 8px; font-weight: 600; }
+  .approach-item p { color: var(--pine); font-size: 0.97rem; }
+  @media (max-width: 760px) {
+    .approach-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .service-card { background: var(--paper); padding: 40px 34px; transition: background 0.25s ease; }
+  .service-card:hover { background: var(--paper-dim); }
+  .service-mark {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    color: var(--clay);
+    letter-spacing: 0.04em;
+    margin-bottom: 22px;
+    display: block;
+  }
+  .service-card h3 { font-size: 1.18rem; color: var(--pine-deep); margin-bottom: 12px; }
+  .service-card p { color: var(--pine); font-size: 0.95rem; }
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  .process { background: var(--pine-deep); color: var(--paper); }
+  .process .section-head h2 { color: var(--paper); }
+  .process .eyebrow { color: var(--clay-soft); }
+  .process-rail { display: flex; flex-direction: column; }
+  .process-step {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 28px;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(251,248,243,0.14);
+  }
+  .process-step:last-child { border-bottom: none; }
+  .process-num { font-family: 'Source Serif 4', serif; font-size: 1.6rem; color: var(--clay-soft); opacity: 0.8; }
+  .process-step h3 { font-size: 1.12rem; margin-bottom: 8px; color: var(--paper); }
+  .process-step p { color: rgba(251,248,243,0.78); font-size: 0.96rem; max-width: 540px; }
+  .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: start; }
+  .about-portrait {
+    aspect-ratio: 3/4;
+    background: var(--paper-dim);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sage);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px;
+  }
+  .about-copy h2 { font-size: clamp(1.6rem, 2.6vw, 2rem); color: var(--pine-deep); margin-bottom: 6px; }
+  .about-credential { color: var(--clay); font-size: 0.92rem; font-weight: 500; margin-bottom: 24px; display: block; }
+  .about-copy p { color: var(--pine); margin-bottom: 18px; max-width: 560px; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .about-tag { font-size: 0.83rem; color: var(--pine-deep); border: 1px solid var(--line); padding: 6px 14px; border-radius: 20px; }
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-portrait { max-width: 220px; }
+  }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 26px 0; }
+  .faq-item h3 { font-size: 1.05rem; color: var(--pine-deep); margin-bottom: 10px; font-weight: 600; font-family: 'Inter', sans-serif; }
+  .faq-item p { color: var(--pine); font-size: 0.96rem; max-width: 640px; }
+  .contact { background: var(--paper-dim); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .contact-copy h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); color: var(--pine-deep); margin-bottom: 20px; }
+  .contact-copy p { color: var(--pine); margin-bottom: 28px; max-width: 460px; }
+  .contact-detail { display: flex; gap: 14px; margin-bottom: 18px; font-size: 0.95rem; }
+  .contact-detail .label { color: var(--sage); min-width: 88px; flex-shrink: 0; }
+  .contact-detail .value { color: var(--pine-deep); font-weight: 500; }
+  .crisis-note {
+    margin-top: 32px;
+    padding: 18px 20px;
+    background: rgba(193,127,89,0.1);
+    border-left: 2px solid var(--clay);
+    font-size: 0.88rem;
+    color: var(--pine-deep);
+    border-radius: 2px;
+  }
+  .crisis-note strong { display: block; margin-bottom: 4px; }
+  form { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 36px; }
+  .form-row { margin-bottom: 20px; }
+  label { display: block; font-size: 0.85rem; color: var(--pine-deep); margin-bottom: 7px; font-weight: 500; }
+  input, textarea, select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--paper);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--clay); }
+  textarea { resize: vertical; min-height: 100px; }
+  .submit-btn {
+    width: 100%;
+    background: var(--pine-deep);
+    color: var(--paper);
+    border: none;
+    padding: 15px;
+    border-radius: 3px;
+    font-size: 0.97rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-family: 'Inter', sans-serif;
+  }
+  .submit-btn:hover { background: var(--clay); }
+  .form-status { margin-top: 14px; font-size: 0.88rem; color: var(--sage); display: none; }
+  .form-status-error { color: #B0503A; }
+  @media (max-width: 760px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  footer { border-top: 1px solid var(--line); padding: 44px 0; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-inner .logo { font-size: 1.05rem; }
+  .footer-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  footer .fine { font-size: 0.82rem; color: var(--sage); }
+  @media (max-width: 760px) {
+    section { padding: 64px 0; }
+    .hero { padding: 90px 0 64px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span class="logo-mark"></span>Valid Mind Therapy<span class="logo-suffix">PLLC</span></a>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#approach">Approach</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="breath" aria-hidden="true"></div>
+      <span class="eyebrow">Individual &amp; Couples Therapy &middot; Telehealth</span>
+      <h1>What you're feeling makes sense. <em>It always has.</em></h1>
+      <p class="lede">Therapy for anxiety, life transitions, and the kind of overwhelm that doesn't have a clean explanation. A steady, unhurried space to work through what's actually going on — at a pace that's yours.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Schedule a free consultation</a>
+        <a href="#approach" class="btn-ghost">See how it works</a>
+      </div>
+      <div class="hero-note">
+        Currently accepting new clients &mdash; individual and couples sessions, offered via secure telehealth.
+      </div>
+    </div>
+  </section>
+
+  <section class="approach" id="approach">
+    <div class="wrap approach-grid">
+      <div class="approach-statement">
+        <span class="accent-rule"></span>
+        Every mind is valid. Every thought is valid. Every feeling is valid &mdash; even the ones that scare you, even the ones you can't explain.<br><br>
+        That's the starting point, not something you have to earn.
+      </div>
+      <div class="approach-list">
+        <div class="approach-item">
+          <h3>Client-centered, not agenda-driven</h3>
+          <p>This isn't goal-oriented therapy with a checklist. You set the direction, session to session. My job is to follow you there, not lead you somewhere I've already decided you should go.</p>
+        </div>
+        <div class="approach-item">
+          <h3>Room for the whole story</h3>
+          <p>We work through talk therapy, at the pace that's actually yours &mdash; with particular experience supporting people working through trauma, where rushing tends to do more harm than good.</p>
+        </div>
+        <div class="approach-item">
+          <h3>No part of you needs defending</h3>
+          <p>You don't have to justify why you feel the way you do before we can talk about it. The feeling itself is the starting material, not something to get past.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Areas of focus</span>
+        <h2>What we work through together</h2>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-mark">Anxiety</span>
+          <h3>Anxiety &amp; overthinking</h3>
+          <p>For when your mind won't stop running scenarios, or worry has started running the show. We work on the pattern, not just the symptom.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-mark">Transitions</span>
+          <h3>Life transitions</h3>
+          <p>Career changes, relationship shifts, becoming a parent, grief, moving — support for the in-between periods that don't have a name yet.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-mark">Burnout</span>
+          <h3>Burnout &amp; overwhelm</h3>
+          <p>When functioning has quietly become the whole job. We look at what's unsustainable and what actually needs to change.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-mark">Self-worth</span>
+          <h3>Self-criticism &amp; self-worth</h3>
+          <p>For the inner voice that's louder and harsher than anyone would ever speak to a friend. We work on changing that relationship.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-mark">Couples</span>
+          <h3>Couples therapy</h3>
+          <p>For partners working through recurring conflict, trust, or feeling unseen by each other — a space for both people to be heard without it turning into a debate.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-mark">Trauma</span>
+          <h3>Trauma &amp; past history</h3>
+          <p>Gentle, paced exploration of past experiences and how they show up now — talking through personal and family history at whatever depth feels right, never forced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Getting started</span>
+        <h2>What the first few weeks look like</h2>
+      </div>
+      <div class="process-rail">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div>
+            <h3>A free 20-minute consultation</h3>
+            <p>A short call to talk about what's bringing you in, ask any questions, and get a feel for whether this is a good fit — no pressure either way.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div>
+            <h3>An intake session</h3>
+            <p>A longer first appointment to get the full picture: history, current stressors, and what you're hoping is different six months from now.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div>
+            <h3>Weekly sessions</h3>
+            <p>Most clients meet weekly at first, then move to biweekly as things stabilize. Sessions are 50 minutes, held via secure video.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-portrait">Photo of Michael Cronin, LMHC</div>
+      <div class="about-copy">
+        <h2>Michael Cronin</h2>
+        <span class="about-credential">LMHC &mdash; Licensed Mental Health Counselor</span>
+        <p>I work with adults navigating anxiety, major transitions, and the kind of chronic overwhelm that builds quietly until it doesn't anymore. My approach is client-centered: you bring what's real for you, and we follow it together, rather than working through a predetermined program. I'll never just nod along — I'll ask questions and offer honest reflection — but the direction is yours.</p>
+        <p>I have particular experience working with trauma, where pacing and trust matter more than any technique. Therapy here is primarily talk-based: a steady, unhurried conversation rather than homework or modules. Not everything needs to be unpacked in week one, and not everything can wait either — we'll figure out together what each session calls for.</p>
+        <div class="about-tags">
+          <span class="about-tag">Client-centered</span>
+          <span class="about-tag">Trauma-informed</span>
+          <span class="about-tag">Talk therapy</span>
+          <span class="about-tag">Telehealth</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Practical details</span>
+        <h2>Questions before you reach out</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Do you accept insurance?</h3>
+          <p>I'm currently out-of-network, but I provide a superbill that many clients submit for partial reimbursement. I'm happy to walk through what that looks like on our consultation call.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What does a session cost?</h3>
+          <p>Individual sessions are $175 for 50 minutes; couples sessions are $195. A limited number of sliding-scale spots are available — ask during your consultation if cost is a barrier.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is telehealth actually effective?</h3>
+          <p>Yes — research generally shows outcomes comparable to in-person care for most concerns. All sessions are held over secure video, which also means we're not limited by your location within the state.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I know if I need therapy or just a vacation?</h3>
+          <p>Often it's not either/or. The consultation call is a low-stakes way to find out — there's no obligation to continue afterward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <h2>Reach out — there's no wrong way to start this</h2>
+        <p>Fill out the form, or email directly. I respond within one business day, and the first conversation is always free.</p>
+
+        <div class="contact-detail"><span class="label">Email</span><span class="value">hello@validmindtherapy.com</span></div>
+        <div class="contact-detail"><span class="label">Phone</span><span class="value">(617) 555-0148</span></div>
+        <div class="contact-detail"><span class="label">Location</span><span class="value">Telehealth across Massachusetts</span></div>
+
+        <div class="crisis-note">
+          <strong>If this is a crisis</strong>
+          This form isn't monitored in real time. If you're in immediate danger, call or text 988 (Suicide &amp; Crisis Lifeline) or go to your nearest emergency room.
+        </div>
+      </div>
+
+      <form id="contactForm" action="https://formspree.io/f/xeebewkz" method="POST">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="reason">What brings you in? (optional)</label>
+          <textarea id="reason" name="message" placeholder="A sentence or two is plenty."></textarea>
+        </div>
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" class="submit-btn" id="submitBtn">Request a free consultation</button>
+        <p class="form-status" id="formStatus">Thanks — I'll be in touch within one business day.</p>
+        <p class="form-status form-status-error" id="formError">Something went wrong sending that — please try again, or email hello@validmindtherapy.com directly.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="#top" class="logo"><span class="logo-mark"></span>Valid Mind Therapy<span class="logo-suffix">PLLC</span></a>
+    <div class="footer-right">
+      <!-- Professional verification provided by Psychology Today -->
+      <a href="https://www.psychologytoday.com/profile/1692923" class="sx-verified-seal"></a>
+      <script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="17" data-id="1692923" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy8xNy9wcm9maWxlLzE2OTI5MjM/Y2FsbGJhY2s9c3hjYWxsYmFjaw=="></script>
+      <!-- End Verification -->
+      <span class="fine">&copy; 2026 Michael Cronin, LMHC &middot; Telehealth across Massachusetts</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  const formError = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+
+  contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    formStatus.style.display = 'none';
+    formError.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formStatus.style.display = 'block';
+        contactForm.reset();
+      } else {
+        formError.style.display = 'block';
+      }
+    } catch (err) {
+      formError.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request a free consultation';
+    }
+  });
+</script>
+
+</body>
+</html>
