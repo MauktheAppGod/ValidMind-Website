@@ -240,13 +240,13 @@
     background: var(--paper-dim);
     border: 1px solid var(--line);
     border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--sage);
-    font-size: 0.85rem;
-    text-align: center;
-    padding: 20px;
+    overflow: hidden;
+  }
+  .about-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .about-copy h2 { font-size: clamp(1.6rem, 2.6vw, 2rem); color: var(--pine-deep); margin-bottom: 6px; }
   .about-credential { color: var(--clay); font-size: 0.92rem; font-weight: 500; margin-bottom: 24px; display: block; }
@@ -320,6 +320,38 @@
     section { padding: 64px 0; }
     .hero { padding: 90px 0 64px; }
   }
+
+  /* ---------- Small phone refinements ---------- */
+  @media (max-width: 480px) {
+    .wrap { padding: 0 20px; }
+
+    .logo { font-size: 1.08rem; gap: 8px; }
+    .logo-suffix { font-size: 0.56rem; }
+
+    .hero h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+    .hero p.lede { font-size: 1.02rem; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .btn-primary { width: 100%; text-align: center; }
+
+    .section-head h2 { font-size: 1.5rem; }
+
+    .approach-statement { font-size: 1.3rem; }
+
+    .service-card { padding: 30px 22px; }
+
+    .process-step {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .process-num { font-size: 1.3rem; }
+
+    .about-grid { gap: 28px; }
+    .about-portrait { max-width: 160px; }
+
+    form { padding: 24px; }
+
+    .contact-detail { flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body>
@@ -345,7 +377,7 @@
     <div class="wrap hero-inner">
       <div class="breath" aria-hidden="true"></div>
       <span class="eyebrow">Individual &amp; Couples Therapy &middot; Telehealth</span>
-      <h1>What you're feeling makes sense. <em>It always has.</em></h1>
+      <h1>What you're feeling makes sense. <em>It still does.</em></h1>
       <p class="lede">Therapy for anxiety, life transitions, and the kind of overwhelm that doesn't have a clean explanation. A steady, unhurried space to work through what's actually going on — at a pace that's yours.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">Schedule a free consultation</a>
@@ -449,7 +481,7 @@
           <div class="process-num">03</div>
           <div>
             <h3>Weekly sessions</h3>
-            <p>Most clients meet weekly at first, then move to biweekly as things stabilize. Sessions are 50 minutes, held via secure video.</p>
+            <p>Most clients meet weekly at first, then move to biweekly as things stabilize. Sessions are 50 minutes, held via secure video through SimplePractice's telehealth platform — you'll get a private link for each appointment.</p>
           </div>
         </div>
       </div>
@@ -458,16 +490,16 @@
 
   <section id="about">
     <div class="wrap about-grid">
-      <div class="about-portrait">Photo of Michael Cronin, LMHC</div>
+      <div class="about-portrait"><img src="headshot.jpg" alt="Michael Cronin, LMHC"></div>
       <div class="about-copy">
         <h2>Michael Cronin</h2>
         <span class="about-credential">LMHC &mdash; Licensed Mental Health Counselor</span>
-        <p>I work with adults navigating anxiety, major transitions, and the kind of chronic overwhelm that builds quietly until it doesn't anymore. My approach is client-centered: you bring what's real for you, and we follow it together, rather than working through a predetermined program. I'll never just nod along — I'll ask questions and offer honest reflection — but the direction is yours.</p>
-        <p>I have particular experience working with trauma, where pacing and trust matter more than any technique. Therapy here is primarily talk-based: a steady, unhurried conversation rather than homework or modules. Not everything needs to be unpacked in week one, and not everything can wait either — we'll figure out together what each session calls for.</p>
+        <p>I work with adults across a wide range of life stages, drawing on psychoanalytic and psychodynamic approaches with a focus on trauma. My goal is to help clients explore how past and present experiences shape thoughts, emotions, and relationships — uncovering patterns and processing what's gone unresolved, rather than just managing symptoms.</p>
+        <p>My approach is collaborative and empathetic: I prioritize attentive listening and validation to create a safe space for insight, self-understanding, and lasting personal growth. You don't have to arrive with the answers already worked out — that's part of what we do together.</p>
         <div class="about-tags">
-          <span class="about-tag">Client-centered</span>
+          <span class="about-tag">Psychodynamic</span>
           <span class="about-tag">Trauma-informed</span>
-          <span class="about-tag">Talk therapy</span>
+          <span class="about-tag">Client-centered</span>
           <span class="about-tag">Telehealth</span>
         </div>
       </div>
@@ -483,15 +515,15 @@
       <div class="faq-list">
         <div class="faq-item">
           <h3>Do you accept insurance?</h3>
-          <p>I'm currently out-of-network, but I provide a superbill that many clients submit for partial reimbursement. I'm happy to walk through what that looks like on our consultation call.</p>
+          <p>Yes — I'm in-network with Blue Cross Blue Shield. For other insurers, I'm out-of-network but provide a superbill that many clients submit for partial reimbursement. I'm happy to walk through what that looks like on our consultation call.</p>
         </div>
         <div class="faq-item">
           <h3>What does a session cost?</h3>
-          <p>Individual sessions are $175 for 50 minutes; couples sessions are $195. A limited number of sliding-scale spots are available — ask during your consultation if cost is a barrier.</p>
+          <p>For Blue Cross Blue Shield clients, cost depends on your plan's copay or coinsurance. Self-pay sessions are $175 for individuals and $195 for couples, for 50 minutes. A limited number of sliding-scale spots are available — ask during your consultation if cost is a barrier.</p>
         </div>
         <div class="faq-item">
           <h3>Is telehealth actually effective?</h3>
-          <p>Yes — research generally shows outcomes comparable to in-person care for most concerns. All sessions are held over secure video, which also means we're not limited by your location within the state.</p>
+          <p>Yes — research consistently supports its effectiveness, and some studies even find better follow-through with telehealth than other formats. All sessions are held over secure video, which also means we're not limited by your location within the state.</p>
         </div>
         <div class="faq-item">
           <h3>How do I know if I need therapy or just a vacation?</h3>
@@ -507,8 +539,8 @@
         <h2>Reach out — there's no wrong way to start this</h2>
         <p>Fill out the form, or email directly. I respond within one business day, and the first conversation is always free.</p>
 
-        <div class="contact-detail"><span class="label">Email</span><span class="value">hello@validmindtherapy.com</span></div>
-        <div class="contact-detail"><span class="label">Phone</span><span class="value">(617) 555-0148</span></div>
+        <div class="contact-detail"><span class="label">Email</span><span class="value">Michael@validmindtherapy.com</span></div>
+        <div class="contact-detail"><span class="label">Phone</span><span class="value">(978) 335-5481</span></div>
         <div class="contact-detail"><span class="label">Location</span><span class="value">Telehealth across Massachusetts</span></div>
 
         <div class="crisis-note">
@@ -533,7 +565,7 @@
         <input type="text" name="_gotcha" style="display:none">
         <button type="submit" class="submit-btn" id="submitBtn">Request a free consultation</button>
         <p class="form-status" id="formStatus">Thanks — I'll be in touch within one business day.</p>
-        <p class="form-status form-status-error" id="formError">Something went wrong sending that — please try again, or email hello@validmindtherapy.com directly.</p>
+        <p class="form-status form-status-error" id="formError">Something went wrong sending that — please try again, or email Michael@validmindtherapy.com directly.</p>
       </form>
     </div>
   </section>
